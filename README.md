@@ -52,7 +52,7 @@ A novel structure optimization heuristic based on agglomerative clustering [1].
 
 ### Class-balanced nested dichotomies (CBND)
 
-The CBND heuristic proposed by Dong et al. [4] is another top-down approach, mainly aiming at creating NDs with a balanced tree structure.
+The CBND heuristic proposed by Dong et al. [4] is a top-down approach, mainly aiming at creating NDs with a balanced tree structure.
 
 ### Nested dichotomies based on clustering (NDC) 
 
