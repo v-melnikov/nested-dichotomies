@@ -66,10 +66,10 @@ The random-pair selection heuristic recently proposed by Leathart et al. [2].
 
 [1] N.N, N.N "On the Effectiveness of Heuristics for Learning Nested Dichotomies: An Empirical Analysis", 2018 (to appear)
 
-[2] Leathart, T., Pfahringer, B., Frank, E.: Building ensembles of adaptive nested dichotomies with random-pair selection. In: Machine Learning and Knowledge Discovery in Databases: European Conference, ECML PKDD, 2016
+[2] Leathart, T., Pfahringer, B., Frank, E.: "Building ensembles of adaptive nested dichotomies with random-pair selection". In: Machine Learning and Knowledge Discovery in Databases: European Conference, ECML PKDD, 2016
 
-[3] Duarte-Villasenor, M.M., Carrasco-Ochoa, J.A., Martinez-Trinidad, J.F., Flores-Garrido, M.: Nested dichotomies based on clustering. In: Progress in Pattern Recognition, Image Analysis, Computer Vision, and Applications: 17th Iberoamerican Congress, CIARP, 2012
+[3] Duarte-Villasenor, M.M., Carrasco-Ochoa, J.A., Martinez-Trinidad, J.F., Flores-Garrido, M.: "Nested dichotomies based on clustering". In: Progress in Pattern Recognition, Image Analysis, Computer Vision, and Applications: 17th Iberoamerican Congress, CIARP, 2012
 
-[4] Dong, L., Frank, E., Kramer, S.: Ensembles of balanced nested dichotomies for multi-class problems. In: Knowledge discovery in databases, Lecture Notes in Computer Science, 2005
+[4] Dong, L., Frank, E., Kramer, S.: "Ensembles of balanced nested dichotomies for multi-class problems". In: Knowledge discovery in databases, Lecture Notes in Computer Science, 2005
 
 
