@@ -9,19 +9,19 @@ This project contains a python implementation for heuristic generation of nested
 To use this package simple copy it to your project and import:
 
 ```
-import *name-of-the-folder*
+import nd
 ```
 ### Usage example
 A random nested dichotomy for a problem with 10 classes can be sampled (uniformly at random) as follows:
 
 ```
 c = 10 # number of classes
-nd2d = RandomGeneration.generate(c, seed=42)
+nd2d = nd.RandomGeneration.generate(c, seed=42)
 ```
 The 'nd2d' will contain the sampled nested dichotomy encoded as a list of integers (tree nodes in preorder). For encoding details see [1]. First, this list has to be parsed into a proper classifier model:
 
 ```
-nd = NestedDichotomy.parse(nd2d)
+nd = nd.NestedDichotomy.parse(nd2d)
 ```
 
 Now the generated nested dichotomy can be used as usuall multi-class classifier with any probabilistic base learner. Assuming the training data is given as (X, y):
@@ -34,10 +34,10 @@ base_learner = tree.DecisionTreeClassifier
 kwargs = {'max_depth':1}  
 
 #train the model
-NestedDichotomy.train(nd, X, y, base_learner, **kwargs)  
+nd.NestedDichotomy.train(nd, X, y, base_learner, **kwargs)  
 
 #predict using the trained model
-y_pred = NestedDichotomy.predict_proba(nd, X_test, c)
+y_pred = nd.NestedDichotomy.predict_proba(nd, X_test, c)
 
 ```
 
