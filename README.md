@@ -64,7 +64,7 @@ The random-pair selection heuristic recently proposed by Leathart et al. [2].
 
 ## References
 
-[1] N.N, N.N "On the Effectiveness of Heuristics for Learning Nested Dichotomies: An Empirical Analysis", 2018 (to appear)
+[1] V. Melnikov, E. Hüllermeier "On the Effectiveness of Heuristics for Learning Nested Dichotomies: An Empirical Analysis", 2018 (to appear)
 
 [2] Leathart, T., Pfahringer, B., Frank, E.: "Building ensembles of adaptive nested dichotomies with random-pair selection". In: Machine Learning and Knowledge Discovery in Databases: European Conference, ECML PKDD, 2016
 
