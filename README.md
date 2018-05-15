@@ -15,8 +15,9 @@ import nd
 A random nested dichotomy for a problem with 10 classes can be sampled (uniformly at random) as follows:
 
 ```
-c = 10 # number of classes
-nd2d = nd.RandomGeneration.generate(c, seed=42)
+c = 10  # number of classes
+lbs = np.arange(c)  # corresponding class labels. Should be an integer array with c elements.
+nd2d = nd.RandomGeneration.generate(c, labels=lbs, seed=42)
 ```
 The 'nd2d' will contain the sampled nested dichotomy encoded as a list of integers (tree nodes in preorder). For encoding details see [1]. First, this list has to be parsed into a proper classifier model:
 
@@ -49,6 +50,10 @@ All the provided algorithms have the same interface. To generate a nested dichot
 ### Heuristic based on agglomerative clustering (ACND)
 
 A novel structure optimization heuristic based on agglomerative clustering [1].
+
+### Best-of-K heuristic with biased sampling 
+
+Biased version of a Best-of-K heuristic [1].
 
 ### Class-balanced nested dichotomies (CBND)
 
