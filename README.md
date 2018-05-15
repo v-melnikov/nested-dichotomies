@@ -53,7 +53,7 @@ A novel structure optimization heuristic based on agglomerative clustering [1].
 
 ### Best-of-K heuristic with biased sampling 
 
-Biased version of a Best-of-K heuristic [1].
+Biased version of the Best-of-K heuristic [1].
 
 ### Class-balanced nested dichotomies (CBND)
 
