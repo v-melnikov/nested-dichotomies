@@ -1,3 +1,3 @@
-from NestedDichotomies import RandomGeneration
-from NestedDichotomies import NestedDichotomy
-from NestedDichotomies import ACND, NDC, RPND, CBND
+from NestedDichotomies.nd import RandomGeneration
+from NestedDichotomies.nd import NestedDichotomy
+from NestedDichotomies.nd import ACND, NDC, RPND, CBND, BBoK

@@ -10,6 +10,7 @@ class DNode:
         self.right = right
         self.split = split
         self.p = np.ones(1)  # predicted probability for an instance
+        self.depth = 0  # only for sampling comparison
         self.model = model
 
     def set_left(self, left):
@@ -93,9 +94,12 @@ def train_model(split, X, y, model_type, **kwargs):
     mc1[:, -1] = 1
     mc2[:, -1] = 2
 
-    d = np.vstack((mc1, mc2))
+    if len(mc1) == 0 or len(mc2) == 0:
+        model = DummyModel()
+    else:
+        model = model_type(**kwargs)
 
-    model = model_type(**kwargs)
+    d = np.vstack((mc1, mc2))
     model.fit(d[:, :-2].astype(float), d[:, -1].astype(int))
     return model
 
@@ -130,3 +134,27 @@ def predict_proba(root, X, c):
     assert (np.abs(np.sum(proba, axis=1)-1) <= 1e-5).all(), 'Total class probability out of the precision range'
     return proba
 
+
+# ----------------------------------------  Dummy model for 1-class or 0-class data ----------------------------------------
+
+class DummyModel:
+    def __init__(self):
+        self.type = None
+
+    def fit(self, X, y):
+        if X.shape[0] == 0:
+            self.type = 0
+        elif 1 in y:
+            self.type = 1
+        else:
+            self.type = 2
+
+    def predict_proba(self, X):
+        y = np.zeros((X.shape[0], 2), dtype=np.float)
+        if self.type == 0:
+            y.fill(0.5)
+        elif self.type == 1:
+            y[:, 0] = 1.0
+        else:
+            y[:, 1] = 1.0
+        return y

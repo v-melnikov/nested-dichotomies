@@ -1,5 +1,5 @@
 import numpy as np
-from NestedDichotomies import NestedDichotomy
+from NestedDichotomies.nd import NestedDichotomy
 
 
 def generate_rpnd_split(enc, X, y, model_type,  **kwargs):
@@ -8,7 +8,7 @@ def generate_rpnd_split(enc, X, y, model_type,  **kwargs):
     rc = a[(1 << a & enc).astype(bool)]
 
     if len(rc) == 1:
-        return [1 << rc[0], 0]
+        return (1 << rc[0], 0)
 
     cs = np.random.choice(rc, size=2, replace=False)
     c1_group = [cs[0]]
@@ -26,7 +26,7 @@ def generate_rpnd_split(enc, X, y, model_type,  **kwargs):
             c1_group.append(ci)
         else:
             c2_group.append(ci)
-    return [np.sum(1 << np.array(c1_group)), np.sum(1 << np.array(c2_group))]
+    return (np.sum(1 << np.array(c1_group)), np.sum(1 << np.array(c2_group)))
 
 
 def generate(X, y, model_type, seed=42, **kwargs):
@@ -44,6 +44,6 @@ def generate(X, y, model_type, seed=42, **kwargs):
         if split[1] != 0:
             s.append(generate_rpnd_split(split[1], X, y, model_type, **kwargs))
             s.append(generate_rpnd_split(split[0], X, y, model_type, **kwargs))
-    return ds
+    return tuple(ds)
 
 

@@ -129,15 +129,16 @@ def compute_splits(node):
         node.split = [sum(node.left.split), sum(node.right.split)]
 
 
-def generate(classes, seed=42):
+def generate(n, labels=None, seed=42):
     """ Generates a random nested dichotomy for n classes. Returns a list of dichotomies in preorder. """
     ds = []  # dichotomies
-    n = len(classes)
+    if labels is None:
+        labels = np.arange(n)
 
     def gen_nd(node):
-        ds.append(node.split)
+        ds.append(tuple(node.split))
 
     edges = np.stack(rtl_tree(n, seed), axis=1)
-    root = edges_to_tree(classes, edges)
+    root = edges_to_tree(labels, edges)
     root.preorder(gen_nd)
-    return ds
+    return tuple(ds)

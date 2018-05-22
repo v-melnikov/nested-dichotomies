@@ -9,7 +9,7 @@ def generate_ndc_split(enc, X, y):
 
     # leaf
     if len(rc) == 1:
-        return [1 << rc[0], 0]
+        return (1 << rc[0], 0)
 
     # inner node
     else:
@@ -31,7 +31,7 @@ def generate_ndc_split(enc, X, y):
                 else:
                     c2_group.append(ci)
 
-        return [np.sum(1 << np.array(c1_group)), np.sum(1 << np.array(c2_group))]
+        return (np.sum(1 << np.array(c1_group)), np.sum(1 << np.array(c2_group)))
 
 
 def generate(X, y):
@@ -46,5 +46,5 @@ def generate(X, y):
         if split[1] != 0:
             s.append(generate_ndc_split(split[1], X, y))
             s.append(generate_ndc_split(split[0], X, y))
-    return ds
+    return tuple(ds)
 

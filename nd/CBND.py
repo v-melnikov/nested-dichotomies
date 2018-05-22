@@ -7,12 +7,12 @@ def generate_cbnd_split(enc,  **kwargs):
     rc = a[(1 << a & enc).astype(bool)]
 
     if len(rc) == 1:
-        return [1 << rc[0], 0]
+        return (1 << rc[0], 0)
 
     cs = np.random.choice(rc, size=int(np.floor(len(rc)/2)), replace=False)
     c1_group = cs
     c2_group = [x for x in rc if x not in cs]
-    return [np.sum(1 << np.array(c1_group)), np.sum(1 << np.array(c2_group))]
+    return (np.sum(1 << np.array(c1_group)), np.sum(1 << np.array(c2_group)))
 
 
 def generate(X, y, seed=42, **kwargs):
@@ -30,4 +30,4 @@ def generate(X, y, seed=42, **kwargs):
         if split[1] != 0:
             s.append(generate_cbnd_split(split[1], **kwargs))
             s.append(generate_cbnd_split(split[0], **kwargs))
-    return ds
+    return tuple(ds)

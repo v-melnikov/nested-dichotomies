@@ -1,7 +1,7 @@
 import numpy as np
 import numpy.ma as ma
 from scipy.spatial import distance
-from NestedDichotomies import NestedDichotomy as nd
+from NestedDichotomies.nd import NestedDichotomy as nd
 
 
 def single(u, v):
@@ -21,7 +21,7 @@ def average(u, v):
 
 def generate(X, y, method=average):
     """ Creates a cluster structure agglomeratively from predefinded clusters """
-    c = len(np.unique(y))
+    #c = len(np.unique(y))
     pc = [np.array([x for i, x in enumerate(X) if y[i] == j]) for j in np.unique(y)]  # pre-cluster containing single classes
     labels = 1 << np.unique(y)  # np.arange(c, dtype=int)
     nodes = {}
@@ -74,7 +74,7 @@ def generate(X, y, method=average):
     ds = []  # dichotomies
 
     def gen_nd(node):
-        ds.append(node.split)
+        ds.append(tuple(node.split))
 
     root.preorder(gen_nd)
-    return ds
+    return tuple(ds)
