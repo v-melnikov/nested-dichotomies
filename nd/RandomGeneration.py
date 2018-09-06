@@ -133,7 +133,7 @@ def generate(n, labels=None, seed=42):
     """ Generates a random nested dichotomy for n classes. Returns a list of dichotomies in preorder. """
     ds = []  # dichotomies
     if labels is None:
-        labels = np.arange(n)
+        labels = list(range(n))
 
     def gen_nd(node):
         ds.append(tuple(node.split))
