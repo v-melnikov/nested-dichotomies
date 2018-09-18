@@ -16,7 +16,7 @@ A random nested dichotomy for a problem with 10 classes can be sampled (uniforml
 
 ```
 c = 10  # number of classes
-lbs = np.arange(c)  # corresponding class labels. Should be an integer array with c elements.
+lbs = list(range(c))  # corresponding class labels. This should be an integer list with c elements. 
 nd2d = nd.RandomGeneration.generate(c, labels=lbs, seed=42)
 ```
 The 'nd2d' will contain the sampled nested dichotomy encoded as a list of integers (tree nodes in preorder). For encoding details see [1]. First, this list has to be parsed into a proper classifier model:
